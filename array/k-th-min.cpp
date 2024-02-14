@@ -26,9 +26,14 @@ int main(){
     
     cout<<"k: ";
     cin>>k;
+    while(k>len){
+        cout<<"Enter K less than "<<len<<": ";
+        cin>>k;
+    }
+    
 
     Sort(arr, len);
-    
+
     cout << k << "th element is: " << arr[k-1];
 
     return 0;
