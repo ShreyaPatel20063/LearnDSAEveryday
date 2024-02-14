@@ -1,21 +1,20 @@
 #include<iostream>
 using namespace std;
 
-struct minMax
+struct minMax1
 {
     int min;
     int max;
 };
 
-struct minMax minmaxArray(int arr[], int n, int min, int max){
-    int s=0, e=n;
+struct minMax1 minmaxArray(int arr[], int n, int min, int max){
+    int s=0, e=n-1;
     
-    struct minMax minMax;
+    struct minMax1 minMax;
     minMax.min = min;
     minMax.max = max;
 
-
-    while(s<e){
+    while(s<=e){
         if(arr[s] <= arr[e]){
             if(minMax.min > arr[s]){
                 minMax.min = arr[s];
@@ -32,8 +31,8 @@ struct minMax minmaxArray(int arr[], int n, int min, int max){
             }
         }
         s++, e--;
-    }
-    return (min, max);
+    }   
+    return minMax;
 }
 
 int main(){
@@ -47,7 +46,8 @@ int main(){
     for(int i=0; i<n; i++){
         cin>>arr[i];
     }
+    struct minMax1 a = minmaxArray(arr, n, arr[0], arr[0]);
 
-    cout<<"Min and Max are: "<<minmaxArray(arr, n, arr[0], arr[0]);
+    cout<<"Min and Max are: " << a.min<<"  "<<a.max;
     return 0;
 }
